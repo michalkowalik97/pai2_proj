@@ -1,0 +1,18 @@
+Temat projektu na: Portal ogłoszeń lokalnych
+Front-end: React
+Back-end: Spring Boot
+Baza danych: MySql
+Skład zespółu: Michał Wójcik, Michał Kowalik
+Kategorie użytkowników: Moderator, Zalogowany użytkownik, Niezalogowany użytkownik
+Podział prac: Każdy z nas będzie realizował zadania w każdej warstwie dotyczącej swojej kategorii użytkownika
+
+Realizowane projekty
+Michał Kowalik:
+Inżynieria systemów informacyjnych: Aplikacja do handlu kryptowalutami
+Podstawy inżynierii programowania: System zarządania sanatorium
+Praca inżynierska: Aplikacja do handlu kryptowalutami z możliwością automatycznego handlu
+
+Michał Wójcik:
+Inżynieria systemów informacyjnych: System zarządania sanatorium
+Podstawy inżynierii programowania: System zarządania sanatorium
+Praca inżynierska: Gra w technologii wirtualnej rzeczywistości
