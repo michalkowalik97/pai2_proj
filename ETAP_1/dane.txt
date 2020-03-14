@@ -16,3 +16,21 @@ Michał Wójcik:
 Inżynieria systemów informacyjnych: System zarządania sanatorium
 Podstawy inżynierii programowania: System zarządania sanatorium
 Praca inżynierska: Gra w technologii wirtualnej rzeczywistości
+
+
+Nasz serwis ogłoszeń lokalnych będzie pozwalać na zamieszczanie ogłoszeń dotyczących m.in. pracy i kupna/sprzedaży, zarówno dla firm jak i dla osób fizycznych. 
+Użytkownicy niezalogowani będą mieli możliwość:
+ - Przeglądania ogłoszeń
+ - Sprawdzania danych kontaktowych do wystawiającego ogłoszenie
+Użytkownicy zalogowani będą mieli możliwość: 
+ - Przeglądania ogłoszeń
+ - Sprawdzania danych kontaktowych do wystawiającego ogłoszenie
+ - Czatu z innymi użytkownikami dotyczącego konkretnego ogłoszenia
+ - Dodawania własnych ogłoszeń
+ - Zgłaszania ogłoszeń budzących wątpliwość do moderatorów
+Moderatorzy będą mieli możliwość:
+ - Przeglądania ogłoszeń
+ - Sprawdzania danych kontaktowych do wystawiającego ogłoszenie
+ - Usuwania ogłoszeń
+ - Pisania wiadomości na skrzynkę odbiorczą użytkowników zalogowanych
+ - Blokowania kont użytkowników zalogowanych
