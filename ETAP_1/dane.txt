@@ -32,5 +32,5 @@ Moderatorzy będą mieli możliwość:
  - Przeglądania ogłoszeń
  - Sprawdzania danych kontaktowych do wystawiającego ogłoszenie
  - Usuwania ogłoszeń
- - Pisania wiadomości na skrzynkę odbiorczą użytkowników zalogowanych
- - Blokowania kont użytkowników zalogowanych
+ - Pisania wiadomości na skrzynkę odbiorczą użytkowników 
+ - Blokowania kont użytkowników 
