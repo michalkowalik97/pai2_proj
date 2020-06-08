@@ -1,5 +1,7 @@
 package tk.solex.api.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -8,8 +10,10 @@ import java.util.UUID;
 public class Category {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @SerializedName(value = "value")
     private long Id;
 
+    @SerializedName(value = "label")
     private String name;
 
     @ManyToOne(optional = true)
@@ -39,4 +43,5 @@ public class Category {
     public void setParent(Category parent) {
         this.parent = parent;
     }
+
 }

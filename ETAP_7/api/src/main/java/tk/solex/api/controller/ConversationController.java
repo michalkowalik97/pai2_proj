@@ -2,6 +2,7 @@ package tk.solex.api.controller;
 
 import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api")
 public class ConversationController {
     @Autowired
     MessageDAO messageDAO;
@@ -36,16 +38,13 @@ public class ConversationController {
     @Autowired
     AdvertisementDAO advertisementDAO;
 
-    @RequestMapping("/wiadomosci")
-    public String conversationPage() {
-        return "<html><h1>Conversation Page</h1></html>";
-    }
     /**
      * Metoda pozwalająca na utworzenie nowej konwersacji
      * @param json JSON zawierający wszystkie niezbędne dane do utworzenia nowej konwersacji
      * @param request
      * @return komunikat informujący czy udało się utworzyć nową konwersację
      */
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @PostMapping("/nowa-konwersacja")
     public String newConversation(@RequestBody String json, HttpServletRequest request) {
         try {
@@ -69,6 +68,7 @@ public class ConversationController {
      * @param request
      * @return komunikat informujący czy udało się wysłać wiadomość
      */
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @PostMapping("/nowa-wiadomosc")
     public String newMessage(@RequestBody String json, HttpServletRequest request) {
 

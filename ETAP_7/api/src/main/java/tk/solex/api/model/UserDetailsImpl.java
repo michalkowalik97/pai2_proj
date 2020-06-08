@@ -7,31 +7,49 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
-public class UserDetailsImpl extends User implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
 
+    private Long id;
+    private String username;
+    private String email;
+    private String password;
+    private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(final User user) {
-        super(user);
+    public UserDetailsImpl(Long id, String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.authorities = authorities;
+    }
+
+    public static UserDetailsImpl build(User user) {
+        List<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority(user.getRole().getName()));
+
+        return new UserDetailsImpl(
+                user.getId(),
+                user.getUsername(),
+                user.getEmail(),
+                user.getPasswordHash(),
+                authorities
+        );
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Role role = getRole();
-        SimpleGrantedAuthority grantedAuthority = new SimpleGrantedAuthority("ROLE_"+role.getName());
-        List<GrantedAuthority> authorities = Arrays.asList(grantedAuthority);
-
         return authorities;
     }
 
     @Override
     public String getPassword() {
-        return super.getPasswordHash();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return super.getUsername();
+        return username;
     }
 
     @Override
@@ -52,5 +70,12 @@ public class UserDetailsImpl extends User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass()) return false;
+        UserDetailsImpl user = (UserDetailsImpl) obj;
+        return Objects.equals(id, user.id);
     }
 }

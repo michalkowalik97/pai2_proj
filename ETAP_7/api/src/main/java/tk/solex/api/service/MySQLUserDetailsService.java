@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.solex.api.dao.UserDAO;
 import tk.solex.api.model.User;
 import tk.solex.api.model.UserDetailsImpl;
@@ -17,11 +18,10 @@ public class MySQLUserDetailsService implements UserDetailsService {
     private UserDAO userDAO;
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Optional<User> optionalUser = userDAO.findByUsername(s);
-        optionalUser
-                .orElseThrow(()-> new UsernameNotFoundException("Username not found!"));
-        return optionalUser
-                .map(UserDetailsImpl::new).get();
+    @Transactional
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> optionalUser = userDAO.findByUsername(username);
+        optionalUser.orElseThrow(()-> new UsernameNotFoundException("Username '"+username+"' not found!"));
+        return UserDetailsImpl.build(optionalUser.get());
     }
 }
