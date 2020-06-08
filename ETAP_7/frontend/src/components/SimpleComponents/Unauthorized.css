@@ -1,0 +1,9 @@
+.unauthorizedPage {
+  display: flex;
+  align-self: center;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 15% 15%;
+}
